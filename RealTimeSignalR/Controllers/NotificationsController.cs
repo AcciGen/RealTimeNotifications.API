@@ -20,6 +20,7 @@ namespace RealTimeSignalR.Controllers
         public async Task<IActionResult> Notificate([FromBody] string message)
         {
             await _hubContext.Clients.All.SendAsync("ReceiveMessage", message);
+
             return Ok(message);
         }
     }
